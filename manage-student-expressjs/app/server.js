@@ -5,10 +5,10 @@ const bodyParser = require('body-parser')
 const app = express()
 const port = 6969
 
-// convert (req, res) to json 
-app.use(express.json())
 // create application/json parser
 app.use(bodyParser.json())
+// convert (req, res) to json 
+app.use(express.json())
 
 app.use(router)
 

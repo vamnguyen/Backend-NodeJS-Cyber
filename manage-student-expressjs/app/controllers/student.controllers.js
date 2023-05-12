@@ -1,37 +1,21 @@
-let studentList = [
-  {
-    id: 1,
-    fullName: "Nguyễn Viết Minh Duy",
-    age: 19,
-    className: "A1"
-  },
-  {
-    id: 2,
-    fullName: "Nguyễn Viết Anh Minh",
-    age: 18,
-    className: "B1"
-  },
-  {
-    id: 3,
-    fullName: "VAM Nguyen",
-    age: 20,
-    className: "xyz"
-  }
-]
+const { getList, getDetail, addStudent, updateStudent, deleteStudent, } = require('../services/student.services')
 
 const getStudentList = (req, res) => {
-  res.status(200).send(studentList)
+  const studentList = getList()
+  if (studentList) {
+    res.status(200).send(studentList)
+  } else {
+    res.status(404).send('Not Found!')
+  }
 }
 
 const getInfoSpecificStudentByID = (req, res) => {
   const param = req.params // return object
   const id = param.id
 
-  const index = studentList.findIndex((studentItem) => {
-    return studentItem.id == id
-  })
-  if (index !== -1) {
-    res.status(200).send(studentList[index])
+  const student = getDetail(id)
+  if (student) {
+    res.status(200).send(student)
   } else {
     res.status(404).send("Not Found!")
   }
@@ -39,41 +23,31 @@ const getInfoSpecificStudentByID = (req, res) => {
 
 const createStudent = (req, res) => {
   let student = req.body;
-  // console.log(student, typeof student)
-  student = {
-    ...student,
-    id: studentList.length + 1,
-  };
-  studentList = [...studentList, student];
-  res.status(201).send(student)
+  const newStudent = addStudent(student)
+  res.status(201).send(newStudent)
 }
 
 const updateStudentByID = (req, res) => {
+  // get data from client
   const { id } = req.params
-  const { fullName, age, className } = req.body
-
-  const index = studentList.findIndex((student) => student.id == id)
-  if (index !== -1) {
-    const oldStudent = studentList[index]
-    const updateStudent = { ...oldStudent, fullName, age, className }
-    studentList[index] = updateStudent
-    res.status(200).send(updateStudent)
+  const student = req.body
+  // handle
+  const updatedStudent = updateStudent(id, student)
+  if (updatedStudent) {
+    res.status(200).send(updatedStudent)
   } else {
-    res.status(404).send("Not Found!")
+    res.status(404).send('Not Found!')
   }
 }
 
 const deleteStudentByID = (req, res) => {
   const { id } = req.params
-  const index = studentList.findIndex(student => student.id == id)
-  if (index !== -1) {
-    // Making 2: use method splice of array
-    // Making 1:
-    const studentDelete = studentList[index]
-    studentList = studentList.filter(student => student.id !== studentDelete.id)
-    res.status(200).send(studentDelete)
+
+  const studentDeleted = deleteStudent(id)
+  if (studentDeleted) {
+    res.status(200).send(studentDeleted)
   } else {
-    res.status(404).send("Not Found!")
+    res.status(404).send('Not Found!')
   }
 }
 module.exports = {
