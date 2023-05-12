@@ -1,5 +1,7 @@
 const express = require('express')
 const { getStudentList, getInfoSpecificStudentByID, createStudent, updateStudentByID, deleteStudentByID } = require('../controllers/student.controllers')
+const { logFeature } = require('../middlewares/logger/log-feature')
+const { checkEmpty } = require('../middlewares/validations/student.validation')
 const routerStudent = express.Router()
 
 let studentList = [
@@ -24,18 +26,17 @@ let studentList = [
 ]
 
 // get student list (url => http://localhost:6969)
-routerStudent.get('/', getStudentList)
+routerStudent.get(
+  '/',
+  logFeature,
+  getStudentList
+)
 
 // get info detail student (url => http://localhost:6969/id)
 routerStudent.get('/:id', getInfoSpecificStudentByID)
 
 // add student
-routerStudent.post('/', createStudent)
-// Debug createStudent fix student undefined 
-// routerStudent.post('/', (req, res) => {
-//   console.log(req.body)
-//   return res.status(200).json("Ok")
-// })
+routerStudent.post('/', checkEmpty, createStudent)
 
 // update info student
 routerStudent.put('/:id', updateStudentByID)
