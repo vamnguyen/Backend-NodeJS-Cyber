@@ -20,3 +20,8 @@ app.get('/', (req, res) => {
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
+
+
+// setup sequelize connect to database
+const { sequelize } = require('./models')
+sequelize.sync({ alter: true })

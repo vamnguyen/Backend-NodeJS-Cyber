@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Title</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="../public/css/index.css" />
+</head>
+
+<body>
+  <main class="bg-dark">
+    <div class="container student-managerment bg-base">
+      <h2 class="title-cyber">
+        <span class="cyber--title">Cyber</span><span class="student--title">Student</span>
+      </h2>
+      <div class="student-managerment__content">
+        <div class="mb-4 text-right">
+          <button id="btnPopupModalAdd" class="btn btn-lg btn-outline-warning" data-toggle="modal"
+            data-target="#studentModal">
+            Thêm Học Sinh
+          </button>
+          <!-- Modal -->
+          <div class="modal fade" id="studentModal" tabindex="-1" role="dialog" aria-labelledby="studentModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 id="title-model" class="modal-title" id="exampleModalLabel">
+                    Thêm Học Sinh
+                  </h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form>
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text min-width" id="hoVaTen">Họ và tên</span>
+                      </div>
+                      <input id="name" type="text" class="form-control" placeholder="Họ và tên ..." aria-label="HoVaTen"
+                        aria-describedby="hoVaTen" />
+                    </div>
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text min-width" id="tuoi">Tuổi</span>
+                      </div>
+                      <input id="age" type="text" class="form-control" placeholder="Tuổi ... " aria-label="Tuổi"
+                        aria-describedby="tuoi" />
+                    </div>
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <label class="input-group-text min-width" for="lop">Lớp</label>
+                      </div>
+                      <select id="class" class="custom-select" id="lop">
+                        <option selected>Chọn lớp ...</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                      </select>
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    Đóng
+                  </button>
+                  <button id="addStudent" type="button" class="btn btn-outline-warning">
+                    Thêm
+                  </button>
+                  <button id="updateStudent" type="button" class="btn btn-outline-warning">
+                    Cập Nhật
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="student-list">
+          <table class="table">
+            <thead class="color__white header__size">
+              <tr>
+                <th scope="col">Mã số</th>
+                <th scope="col">Họ và tên</th>
+                <th scope="col">Tuổi</th>
+                <th scope="col">Lớp</th>
+                <th scope="col">xử lý</th>
+              </tr>
+            </thead>
+            <tbody id="tbody" class="color__white body__size"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Modal Messages -->
+  <div class="modal fade" id="modalMessage" tabindex="-1" role="dialog" aria-labelledby="modalMessageLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <p class="alert alert-primary" id="message-content">
+        Thành Công
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </p>
+    </div>
+  </div>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+  <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="../../node_modules/popper.js/dist/popper.min.js"></script>
+  <script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="../../node_modules/axios/dist/axios.min.js"></script>
+  <script src="../src/index.js" type="module"></script>
+</body>
+
+</html>

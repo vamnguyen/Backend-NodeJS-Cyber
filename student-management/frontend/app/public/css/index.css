@@ -1,0 +1,63 @@
+.bg-base {
+  height: 100vh;
+  background-image: url("https://wi.wallpapertip.com/wsimgs/49-493241_background-image-for-student-portal.jpg");
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.title-cyber {
+  font-size: 50px;
+  font-weight: 700;
+  position: absolute;
+  top: 10px;
+
+  background: -webkit-linear-gradient(gold, brown);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.student-managerment__content {
+  width: 80%;
+}
+
+.color__white {
+  color: white;
+}
+
+.header__size {
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.body__size {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.min-width {
+  min-width: 100px;
+}
+
+.student-list {
+  min-height: 80vh;
+  max-height: 80vh;
+  overflow-y: scroll;
+  z-index: 1000;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
