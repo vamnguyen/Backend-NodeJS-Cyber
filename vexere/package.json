@@ -1,0 +1,21 @@
+{
+  "name": "vexere",
+  "version": "1.0.0",
+  "description": "Ve_Xe_Re project",
+  "main": "index.js",
+  "author": "VAM Nguyen",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "mysql2": "^3.3.1",
+    "sequelize": "^6.31.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22",
+    "sequelize-cli": "^6.6.0"
+  }
+}
