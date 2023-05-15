@@ -2,6 +2,7 @@
 const express = require('express');
 const path = require('path');
 const { sequelize } = require('./models');
+const { rootRouter } = require('./routers');
 
 // init application with express
 const app = express()
@@ -12,6 +13,10 @@ app.use(express.json())
 // setup path static file for server to save file and image
 const publicDirPath = path.join(__dirname, './public') // return url to public file
 app.use(express.static(publicDirPath))
+
+// use router
+app.use('/api/v1', rootRouter)
+
 
 app.listen(3000, async () => {
   console.log('App listening on http://localhost:3000')
