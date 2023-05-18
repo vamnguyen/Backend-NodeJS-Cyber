@@ -12,7 +12,7 @@ app.use(express.json())
 
 // setup path static file for server to save file and image
 const publicDirPath = path.join(__dirname, './public') // return url to public file
-app.use(express.static(publicDirPath))
+app.use('/public', express.static(publicDirPath))
 
 // use router
 app.use('/api/v1', rootRouter)
