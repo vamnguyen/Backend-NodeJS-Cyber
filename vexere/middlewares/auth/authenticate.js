@@ -9,7 +9,7 @@ const authenticate = (req, res, next) => {
       req.user = decoded
       return next()
     } else {
-      res.status(401).send('User not login!')
+      res.status(401).send('You not login!')
     }
   } catch (error) {
     res.status(401).send('User not login!')
