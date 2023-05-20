@@ -3,10 +3,13 @@ const express = require('express');
 const path = require('path');
 const { sequelize } = require('./models');
 const { rootRouter } = require('./routers');
+const bodyParser = require('body-parser');
 
 // init application with express
 const app = express()
 
+// Parse JSON request bodies
+app.use(bodyParser.json());
 // convert input data to type JSON
 app.use(express.json())
 
