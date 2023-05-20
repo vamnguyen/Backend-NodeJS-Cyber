@@ -11,8 +11,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate({ Station }) {
       // define association here
-      this.belongsTo(Station, { foreignKey: 'fromStation' })
-      this.belongsTo(Station, { foreignKey: 'toStation' })
+      this.belongsTo(Station, { foreignKey: 'fromStation', as: 'from' })
+      this.belongsTo(Station, { foreignKey: 'toStation', as: 'to' })
     }
   }
   Trip.init({
