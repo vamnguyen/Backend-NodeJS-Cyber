@@ -1,9 +1,12 @@
+const { mkdirp } = require('mkdirp');
 const multer = require('multer');
 
-const uploadImage = () => {
+const uploadImage = (type) => {
+  // return value is the first directory created
+  const made = mkdirp.sync(`./public/images/${type}`)
   const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-      cb(null, './public/images/avatars') // setup chỗ cần lưu file
+      cb(null, `./public/images/${type}`) // setup chỗ cần lưu file
     },
     filename: function (req, file, cb) {
       cb(null, Date.now() + '_' + file.originalname) // đặt lại tên cho file
@@ -23,7 +26,7 @@ const uploadImage = () => {
       }
     }
   })
-  return upload.single('avatar')
+  return upload.single(type)
 }
 
 module.exports = uploadImage
