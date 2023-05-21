@@ -4,9 +4,13 @@ const path = require('path');
 const { sequelize } = require('./models');
 const { rootRouter } = require('./routers');
 const bodyParser = require('body-parser');
+const Fingerprint = require('express-fingerprint')
 
 // init application with express
 const app = express()
+
+// setup Fingerprint
+app.use(Fingerprint())
 
 // Parse JSON request bodies
 app.use(bodyParser.json());
