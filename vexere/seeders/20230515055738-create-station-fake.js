@@ -29,6 +29,20 @@ module.exports = {
           createdAt: '2023-05-13 03:52:12',
           updatedAt: '2023-05-13 06:15:25'
         },
+        {
+          name: 'Bến xe miền Tây',
+          address: '395 Kinh Dương Vương, An Lạc, Bình Tân, Hồ Chí Minh',
+          province: 'Thành phố Hồ Chí Minh',
+          createdAt: '2023-05-13 03:52:12',
+          updatedAt: '2023-05-13 06:15:25'
+        },
+        {
+          name: 'Bến xe An Sương',
+          address: 'QL22, Bà Điểm, Hóc Môn, Thành phố Hồ Chí Minh',
+          province: 'Thành phố Hồ Chí Minh',
+          createdAt: '2023-05-13 03:52:12',
+          updatedAt: '2023-05-13 06:15:25'
+        },
       ],
       {}
     );
