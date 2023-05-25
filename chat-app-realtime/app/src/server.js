@@ -70,7 +70,7 @@ io.on("connection", (socket) => {
 })
 
 
-const port = 6969
+const port = process.env.PORT || 6969
 server.listen(port, () => {
   console.log(`App running on http://localhost:${port}`)
 })
